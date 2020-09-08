@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:10.18-alpine
 
 # CA certificates to authorize public key/certificates of websites
 RUN \
