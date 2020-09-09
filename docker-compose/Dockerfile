@@ -4,4 +4,6 @@ RUN apk add curl py-pip python3-dev python2-dev libffi-dev openssl-dev gcc libc-
 
 RUN pip install docker-compose
 
+RUN pip uninstall pyrsistent && pip install pyrsistent==0.16.0
+
 CMD ["/bin/sh"]
