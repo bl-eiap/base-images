@@ -1,7 +1,6 @@
 #!/bin/bash
-
 TAG=${1}
-DOCKER_COMPOSE=docker-compose
+SEMANTIC_RELEASE=semantic-release
 
 if [[ -z ${TAG} ]]; then
     echo "Warning - missing input tag. Default to 1.0.0"
@@ -11,6 +10,6 @@ fi
 docker rmi ${SEMANTIC_RELEASE}:latest || true
 docker rmi eiap/${SEMANTIC_RELEASE}:${TAG} || true
 
-docker build -f ${DOCKER_COMPOSE}/Dockerfile -t ${DOCKER_COMPOSE} ${DOCKER_COMPOSE} --no-cache
-docker tag ${DOCKER_COMPOSE} eiap/${DOCKER_COMPOSE}:${TAG}
-docker push eiap/${DOCKER_COMPOSE}:${TAG}
+docker build -f ${SEMANTIC_RELEASE}/Dockerfile -t ${SEMANTIC_RELEASE} ${SEMANTIC_RELEASE} --no-cache
+docker tag ${SEMANTIC_RELEASE} eiap/${SEMANTIC_RELEASE}:${TAG}
+docker push eiap/${SEMANTIC_RELEASE}:${TAG}
