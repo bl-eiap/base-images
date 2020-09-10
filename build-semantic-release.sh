@@ -7,8 +7,8 @@ if [[ -z ${TAG} ]]; then
     TAG=1.0.0
 fi
 
-docker rmi ${SEMANTIC_RELEASE}:latest || true
 docker rmi eiap/${SEMANTIC_RELEASE}:${TAG} || true
+docker rmi ${SEMANTIC_RELEASE}:latest || true
 
 docker build -f ${SEMANTIC_RELEASE}/Dockerfile -t ${SEMANTIC_RELEASE} ${SEMANTIC_RELEASE} --no-cache
 docker tag ${SEMANTIC_RELEASE} eiap/${SEMANTIC_RELEASE}:${TAG}

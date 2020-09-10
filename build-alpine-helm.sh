@@ -8,8 +8,8 @@ if [[ -z ${TAG} ]]; then
     TAG=1.0.0
 fi
 
-docker rmi ${IMAGE}:latest || true
 docker rmi eiap/${IMAGE}:${TAG} || true
+docker rmi ${IMAGE}:latest || true
 
 docker build -f ${IMAGE}/Dockerfile -t ${IMAGE} ${IMAGE} --no-cache
 docker tag ${IMAGE} eiap/${IMAGE}:${TAG}

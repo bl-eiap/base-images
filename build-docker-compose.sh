@@ -8,8 +8,8 @@ if [[ -z ${TAG} ]]; then
     TAG=1.0.0
 fi
 
-docker rmi ${DOCKER_COMPOSE}:latest || true
 docker rmi eiap/${DOCKER_COMPOSE}:${TAG} || true
+docker rmi ${DOCKER_COMPOSE}:latest || true
 
 docker build -f ${DOCKER_COMPOSE}/Dockerfile -t ${DOCKER_COMPOSE} ${DOCKER_COMPOSE} --no-cache
 docker tag ${DOCKER_COMPOSE} eiap/${DOCKER_COMPOSE}:${TAG}
