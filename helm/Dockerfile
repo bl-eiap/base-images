@@ -1,3 +1,4 @@
+# This image has shell as entry command, allowing to bed used as a based runner
 FROM alpine:3.11.6
 
 # CA certificates to authorize public key/certificates of websites
