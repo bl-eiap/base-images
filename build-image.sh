@@ -3,7 +3,7 @@
 DIR_NAME=${1}
 TAG=${2}
 CONTEXT=${DIR_NAME}
-IMAGE_NAME=base-${DIR_NAME}
+IMAGE_NAME=${DIR_NAME}
 
 if [[ -z ${DIR_NAME} ]]; then
     echo "Error - missing input directory"
@@ -11,8 +11,8 @@ if [[ -z ${DIR_NAME} ]]; then
 fi
 
 if [[ -z ${TAG} ]]; then
-    echo "Warning - missing input tag. Default to 1.0.0"
-    TAG=1.0.0
+    echo "Warning - missing input tag"
+    exit 1
 fi
 
 docker rmi eiap/${IMAGE_NAME}:${TAG} || true
