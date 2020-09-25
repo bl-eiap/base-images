@@ -3,7 +3,7 @@
 DIR_NAME=${1}
 TAG=${2}
 CONTEXT=${DIR_NAME}
-IMAGE_NAME=${DIR_NAME}-base
+IMAGE_NAME=base-${DIR_NAME}
 
 if [[ -z ${DIR_NAME} ]]; then
     echo "Error - missing input directory"
